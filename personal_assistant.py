@@ -2,8 +2,8 @@ import json
 from datetime import datetime
 
 class Note:
-    def __init__(self, note_id, title, content):
-        self.id = note_id
+    def __init__(self, id, title, content):
+        self.id = id
         self.title = title
         self.content = content
         self.timestamp = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
@@ -113,8 +113,8 @@ class TaskManager:
                 f"{task.id}: {task.title} | Статус: {status_str} | Приоритет: {task.priority} | Срок: {task.due_date}")
 
 class Task:
-    def __init__(self, task_id, title, description='', done=False, priority='Низкий', due_date=None):
-        self.id = task_id
+    def __init__(self, id, title, description='', done=False, priority='Низкий', due_date=None):
+        self.id = id
         self.title = title
         self.description = description
         self.done = done
@@ -209,8 +209,8 @@ class NoteManager:
         print("Заметки успешно экспортированы!")
 
 class Contact:
-    def __init__(self, contact_id, name, phone='', email=''):
-        self.id = contact_id
+    def __init__(self, id, name, phone='', email=''):
+        self.id = id
         self.name = name
         self.phone = phone
         self.email = email
@@ -302,8 +302,8 @@ class ContactManager:
         print("Контакты успешно экспортированы!")
 
 class FinanceRecord:
-    def __init__(self, record_id, amount, category, date, description=''):
-        self.id = record_id
+    def __init__(self, id, amount, category, date, description=''):
+        self.id = id
         self.amount = amount
         self.category = category
         self.date = date
