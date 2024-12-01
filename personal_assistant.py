@@ -173,6 +173,7 @@ class NoteManager:
             print("Заметка не найдена.")
 
     def edit_note(self, note_id, title=None, content=None):
+
         note = next((n for n in self.notes if n.id == note_id), None)
         if note:
             if title is not None:
@@ -460,17 +461,32 @@ def manage_notes():
             note_manager.view_notes()
 
         elif choice == '3':
-            note_id = int(input("Введите ID заметки: "))
+            note_id = input("Введите ID заметки: ")
+            if set(note_id) < set('0123456789'):
+                note_id = int(note_id)
+            else:
+                print("Ошибка: введен неверный id")
+                continue
             note_manager.view_note_details(note_id)
 
         elif choice == '4':
-            note_id = int(input("Введите ID заметки для редактирования: "))
+            note_id = input("Введите ID заметки для редактирования: ")
+            if set(note_id) < set('0123456789'):
+                note_id = int(note_id)
+            else:
+                print("Ошибка: введен неверный id")
+                continue
             title = input("Введите новый заголовок (или оставьте пустым для сохранения): ")
             content = input("Введите новое содержимое (или оставьте пустым для сохранения): ")
             note_manager.edit_note(note_id, title or None, content or None)
 
         elif choice == '5':
-            note_id = int(input("Введите ID заметки для удаления: "))
+            note_id = input("Введите ID заметки для удаления: ")
+            if set(note_id) < set('0123456789'):
+                note_id = int(note_id)
+            else:
+                print("Ошибка: введен неверный id")
+                continue
             note_manager.delete_note(note_id)
 
         elif choice == '6':
