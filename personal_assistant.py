@@ -2,11 +2,14 @@ import json
 from datetime import datetime
 
 class Note:
-    def __init__(self, id, title, content):
+    def __init__(self, id, title, content, timestamp=None):
         self.id = id
         self.title = title
         self.content = content
-        self.timestamp = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+        if timestamp:
+            self.timestamp = timestamp
+        else:
+            self.timestamp = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
     def to_dict(self):
         return {
@@ -318,7 +321,6 @@ class FinanceRecord:
             "description": self.description
         }
 
-
 class FinanceManager:
     def __init__(self, filename='finance.json'):
         self.filename = filename
@@ -476,7 +478,7 @@ def manage_notes():
             note_manager.import_notes(import_file)
 
         elif choice == '7':
-            export_file = input("Введите имя файла для экспорта (например notes_export.json): ")
+            export_file = input("Введите имя файла .json для экспорта (например notes_export.json): ")
             note_manager.export_notes(export_file)
 
         elif choice == '8':

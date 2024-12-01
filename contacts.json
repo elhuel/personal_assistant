@@ -4,5 +4,11 @@
         "name": "egor",
         "phone": "77777777777",
         "email": ""
+    },
+    {
+        "id": 2,
+        "name": "max",
+        "phone": "77777777777",
+        "email": ""
     }
 ]
