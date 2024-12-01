@@ -638,7 +638,12 @@ def manage_contacts():
                                          email or None)
 
         elif choice == '4':
-            contact_id = int(input("Введите ID контакта для удаления: "))
+            contact_id = input("Введите ID контакта для удаления: ")
+            if set(contact_id) < set('0123456789'):
+                contact_id = int(contact_id)
+            else:
+                print("Ошибка: введен неверный id")
+                continue
             contact_manager.delete_contact(contact_id)
 
         elif choice == '5':
